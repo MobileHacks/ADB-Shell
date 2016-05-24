@@ -57,7 +57,7 @@ $ adb shell monkey -v -p com.xxxx.android 400
 $ adb logcat
 ```
 
-Wireless usage
+####Wireless usage
 
 adb is usually used over USB. However, it is also possible to use over Wi-Fi, as described here.
 

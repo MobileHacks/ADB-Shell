@@ -67,7 +67,7 @@ adb is usually used over USB. However, it is also possible to use over Wi-Fi, as
 
 
 3. Set the target device to listen for a TCP/IP connection on port 5555.                                                    
-      $ adb tcpip 5555 
+                   $ adb tcpip 5555 
 
 
 4. Disconnect the USB cable from the target device.
@@ -78,9 +78,9 @@ adb is usually used over USB. However, it is also possible to use over Wi-Fi, as
 
 
 6. Connect to the device, identifying it by IP address.        
-      $ adb connect <device-ip-address>    
+                   $ adb connect <device-ip-address>    
 
 
-7.  Confirm that your host computer is connected to the target device:                                                             $ adb devices                                                               
-      List of devices attached                         
-      <device-ip-address>:5555 device
+7.  Confirm that your host computer is connected to the target device:                                                                         $ adb devices                                                               
+                  List of devices attached                         
+                  <device-ip-address>:5555 device

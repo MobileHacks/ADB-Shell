@@ -56,3 +56,31 @@ $ adb shell monkey -v -p com.xxxx.android 400
 ```sh
 $ adb logcat
 ```
+Wireless usage
+
+adb is usually used over USB. However, it is also possible to use over Wi-Fi, as described here.
+
+1. Connect your Android device and adb host computer to a common Wi-Fi network accessible to both. We have found that not all access points are suitable; you may need to use an access point whose firewall is configured properly to support adb. Note: If you are attempting to connect to a Wear device, force it to connect to Wi-Fi by shutting off Bluetooth on the phone connected to it.
+
+
+2. Connect the device to the host computer with a USB cable.
+
+
+3. Set the target device to listen for a TCP/IP connection on port 5555.                                                    
+      $ adb tcpip 5555 
+
+
+4. Disconnect the USB cable from the target device.
+
+
+5. Find the IP address of the Android device. For example, on a Nexus device, you can find the IP address at Settings > About tablet (or About phone) > Status > IP address. Or, on an Android Wear device, you can find the IP address at Settings > Wi-Fi Settings > Advanced > IP address.
+
+
+
+6. Connect to the device, identifying it by IP address.        
+      $ adb connect <device-ip-address>    
+
+
+7.  Confirm that your host computer is connected to the target device:                                                             $ adb devices                                                               
+      List of devices attached                         
+      <device-ip-address>:5555 device

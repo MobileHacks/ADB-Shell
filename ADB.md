@@ -16,8 +16,9 @@ $ adb shell dumpsys activity services
 #### Install an app in the connected device
 
 ```sh
-$ adb -s xxx.xxx.xx.xxx:5555 install Downloads/com.xxx.android.2.8.0.apk
+$ adb -s xxx.xxx.xx.xxx:5555 install -r Downloads/com.xxx.android.2.8.0.apk
 ```
+*the optional -r argument reinstalls and keeps any data if the application is already installed on the device*
 
 #### Copy file to the connected device
 
@@ -117,3 +118,46 @@ $ adb logcat | grep "term1\|term2"
 ```sh
 $ adb shell cat /proc/cpuinfo
 ```
+
+#### Unlock screen
+
+```sh
+$ adb -s DEVICE_ID shell input keyevent 82
+```
+#### Use Power screen
+
+```sh
+$ adb -s DEVICE_ID shell input keyevent 26
+```
+
+#### View all installed packages
+
+```sh
+$ adb -s DEVICE_ID shell pm list packages -f
+```
+
+#### Start an activity
+
+```sh
+$ adb -s DEVICE_ID shell am start PACKAGE_NAME/ACTIVITY_IN_PACKAGE
+$ adb -s DEVICE_ID shell am start PACKAGE_NAME/FULLY_QUALIFIED_ACTIVITY
+
+Examples:
+adb -s 192.168.56.101:5555 shell am start -n com.xxxx.android/.activities.MainActivity
+
+adb -s 192.168.56.101:5555 shell am start -n com.xxxx.android/com.xxxx.android.activities.MainActivity
+```
+
+
+#### Launch default browser at a URL
+
+```sh
+$ adb -s DEVICE_ID shell am start -a android.intent.action.VIEW -d http://www.google.com
+```
+
+#### Taking screenshot
+
+```sh
+$ adb -s DEVICE_ID shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > screen.png
+```
+*Screenshot will be stored in you client machine from where you have executed the command. Look into the same directory from where you have executed the command.*

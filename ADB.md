@@ -16,9 +16,15 @@ $ adb shell dumpsys activity services
 #### Install an app in the connected device
 
 ```sh
+$ adb -s xxx.xxx.xx.xxx:5555 install Downloads/com.xxx.android.2.8.0.apk
+```
+
+#### Update an app in the connected device
+
+```sh
 $ adb -s xxx.xxx.xx.xxx:5555 install -r Downloads/com.xxx.android.2.8.0.apk
 ```
-*the optional -r argument reinstalls and keeps any data if the application is already installed on the device*
+*the optional -r argument reinstalls and keeps any data if the application is already installed on the device. It is helpful in updating the app from current Build(1.0) to next Build(1.1)*
 
 #### Copy file to the connected device
 

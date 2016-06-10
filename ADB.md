@@ -117,7 +117,7 @@ $ adb logcat -s TEST: W
 ```sh
 $ adb logcat | grep "term"
 $ adb logcat | grep "term1\|term2"
-````
+```
 
 #### Find out processor version on Android Device (check if it's an ARM, for example)
 
@@ -167,3 +167,13 @@ $ adb -s DEVICE_ID shell am start -a android.intent.action.VIEW -d http://www.go
 $ adb -s DEVICE_ID shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > screen.png
 ```
 *Screenshot will be stored in you client machine from where you have executed the command. Look into the same directory from where you have executed the command.*
+
+### Screen record
+```sh
+$ screenrecord [options] <filename>
+
+Examples :
+$adb shell screenrecord /sdcard/demo.mp4
+```
+*Stop the screen recording by pressing Ctrl-C, otherwise the recording stops automatically at three minutes or the time limit set by --time-limit.
+ To begin recording your device screen, run the screenrecord command to record the video. Then, run the pull command to download the video from the device to the host computer.*
